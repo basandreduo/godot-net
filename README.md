@@ -1,10 +1,25 @@
-# Godot Engine
 
-<p align="center">
-  <a href="https://godotengine.org">
-    <img src="logo_outlined.svg" width="400" alt="Godot Engine logo">
-  </a>
-</p>
+
+# Godot-Net
+
+This is a custom version of godot being used for VampireMultiplayer.
+
+
+## Building
+
+### Build editor binary 
+scons platform=windows target=editor module_mono_enabled=yes 
+### Build export templates 
+scons platform=windows target=template_debug module_mono_enabled=yes 
+scons platform=windows target=template_release module_mono_enabled=yes  
+
+### Generate glue sources 
+bin/godot.windows.editor.x86_64.mono --headless --generate-mono-glue modules/mono/glue 
+### Build .NET assemblies 
+./modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin --godot-platform=windows
+
+
+
 
 ## 2D and 3D cross-platform game engine
 
